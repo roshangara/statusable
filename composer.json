@@ -1,0 +1,42 @@
+{
+  "name": "roshangara/statusable",
+  "description": "make statusable database with lumen and laravel",
+  "homepage": "https://github.com/roshangara/statusable",
+  "keywords": [
+    "laravel",
+    "lumen",
+    "roshangara",
+    "statusable"
+  ],
+  "support": {
+    "issues": "https://github.com/roshangara/statusable/issues",
+    "source": "https://github.com/roshangara/statusable"
+  },
+  "require": {
+    "php": ">=7.0",
+    "illuminate/support": "^5.0",
+    "illuminate/database": "^5.0",
+    "roshangara/translatable": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Roshangara\\Statusable": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Roshangara\\Statusable\\StatusableServiceProvider"
+      ]
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mohammad Taghikhani",
+      "email": "mroshangara@gmail.com",
+      "homepage": "http://roshangara.ir"
+    }
+  ],
+  "minimum-stability": "dev"
+}
