@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Roshangara\\Statusable": "src"
+      "Roshangara\\Statusable\\": "src"
     }
   },
   "extra": {
