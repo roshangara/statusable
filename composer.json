@@ -13,10 +13,7 @@
     "source": "https://github.com/roshangara/statusable"
   },
   "require": {
-    "php": ">=7.0",
-    "illuminate/support": "^5.0",
-    "illuminate/database": "^5.0",
-    "roshangara/translatable": "dev-master"
+    "php": ">=7.0"
   },
   "autoload": {
     "psr-4": {
