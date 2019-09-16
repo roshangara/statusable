@@ -15,16 +15,11 @@ class CreateStatusesTable extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->json('title');
-            $table->json('description')->nullable();
+            $table->string('title', 150);
+            $table->string('description')->nullable();
             $table->string('color', 20)->nullable();
             $table->timestamps();
         });
-
-        $status = new \Roshangara\Statusable\Models\Status();
-        $status->setTranslation('title', 'fa', 'جدید');
-        $status->setTranslation('title', 'en', 'new');
-        $status->save();
     }
 
     /**
