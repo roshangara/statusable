@@ -17,6 +17,32 @@ trait Statusable
     }
 
     /**
+     * @param $value
+     */
+    public function setStatusAttribute($value)
+    {
+        $this->setStatus($value);
+    }
+
+    /**
+     * @param int $status_id
+     * @param string|null $reason
+     * @param Model|null $agent
+     */
+    public function setStatus(int $status_id, string $reason = null, Model $agent = null)
+    {
+        $this->update(['status_id' => $status_id]);
+
+        $this->statuses()->attach($status_id, [
+            'status_id' => $status_id,
+            'reason' => $reason,
+            'agent_type' => $agent->getMorphClass() ?? null,
+            'agent_id' => $agent->id ?? null,
+            'created_at' => Carbon::now(),
+        ]);
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function statuses()
@@ -33,32 +59,6 @@ trait Statusable
                 'statusable_status.created_at',
                 'statusable_status.updated_at',
             ]);
-    }
-
-    /**
-     * @param int $status_id
-     * @param string|null $reason
-     * @param Model|null $agent
-     */
-    public function setStatus(int $status_id, string $reason = null, Model $agent = null)
-    {
-        $this->attributes['status_id'] = $status_id;
-
-        $this->statuses()->attach($status_id, [
-            'status_id'  => $status_id,
-            'reason'     => $reason,
-            'agent_type' => $agent->getMorphClass() ?? null,
-            'agent_id'   => $agent->id ?? null,
-            'created_at' => Carbon::now(),
-        ]);
-    }
-
-    /**
-     * @param $value
-     */
-    public function setStatusAttribute($value)
-    {
-        $this->setStatus($value);
     }
 
     /**
